@@ -53,16 +53,6 @@ def list_tasks(skip: int = 0, limit: int = 50, db: Session = Depends(get_db)):
     items = crud.list_tasks_paged(db, skip=skip, limit=limit)
     return {"items": items, "total": total, "skip": skip, "limit": limit}
 
-
-# @app.get("/tasks/search", response_model=list[TaskOut])
-# def search_tasks(
-#     query: str,
-#     skip: int = 0,
-#     limit: int = 50,
-#     db: Session = Depends(get_db),
-# ):
-#     return crud.search_tasks(db, query=query, skip=skip, limit=limit)
-
 @app.get("/tasks/search", response_model=TaskPage)
 def search_tasks(query: str, skip: int = 0, limit: int = 50, db: Session = Depends(get_db)):
     total = crud.count_search_tasks(db, query=query)

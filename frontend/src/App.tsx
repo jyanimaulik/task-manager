@@ -15,7 +15,9 @@ type TaskPage = {
   limit: number;
 };
 
-const API_BASE = import.meta.env.VITE_API_BASE;
+const API_BASE = import.meta.env.VITE_API_BASE || "http://127.0.0.1:8000";
+console.log("API_BASE =", API_BASE);
+
 
 async function api<T>(path: string, options?: RequestInit): Promise<T> {
   const res = await fetch(`${API_BASE}${path}`, {
@@ -296,7 +298,7 @@ export default function App() {
             {error && <div className="alert">{error}</div>}
 
             <div className="smallNote">
-              Developed by Maulik Jyani
+              Developed by Maulik Jyani and <code>{API_BASE} </code>
             </div>
           </section>
 
