@@ -23,6 +23,7 @@ app.add_middleware(
 )
 
 
+
 def get_db():
     db = SessionLocal()
     try:
