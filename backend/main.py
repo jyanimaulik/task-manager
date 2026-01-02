@@ -15,7 +15,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://task-manager-seven-sable.vercel.app/",
+        "https://task-manager-seven-sable.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
