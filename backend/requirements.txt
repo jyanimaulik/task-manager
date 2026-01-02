@@ -1,0 +1,2 @@
+source backend/.venv/bin/activate 2>/dev/null || true
+pip freeze > backend/requirements.txt
